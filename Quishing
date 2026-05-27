@@ -1,0 +1,17 @@
+Alert Summary:
+A QR code phishing email was sent to an internal employee impersonating a mandatory security update notification. The attacker used a malicious IP to deliver the email targeting corporate credentials.
+
+Indicators:
+
+	•	SMTP IP: 158.69.201.47 (9 detections on VirusTotal - Phishing)
+	•	Source Address: security@microsecmfa.com
+	•	Destination: Claire@letsdefend.io
+	•	Email Subject: New Year’s Mandatory Security Update: Implementing MFA
+	•	Device Action: Allowed
+
+
+Analysis:
+The email impersonated an internal security team requesting MFA setup via a QR code. The domain microsecmfa.com was clean on VirusTotal but the sending IP 158.69.201.47 had 9 phishing detections. Social engineering tactics included urgency and authority impersonation. Browser history confirmed Claire did not scan the QR code or visit any suspicious URL. Only one device was targeted. No C2 communication identified.
+
+Recommended Actions:
+Block IP 158.69.201.47 at email gateway, implement SPF/DKIM/DMARC filters, notify Claire about the phishing attempt, conduct security awareness training.
