@@ -1,0 +1,19 @@
+Alert Summary:
+An RDP brute force attack was detected from an external IP address targeting an internal machine on the network.
+
+Indicators:
+
+	•	Source IP: 218.92.0.56 (external/public)
+	•	Destination IP: 172.16.17.148 (internal)
+	•	Port: 3389 (RDP)
+	•	Username used: admin
+	•	Total attempts: 30 events
+	•	Firewall Action: Allowed
+
+
+
+Analysis:
+The source IP 218.92.0.56 was confirmed as a public IP, as it does not belong to any private IP range. The firewall allowed the traffic, meaning the attempts reached the destination machine’s operating system, evidenced by OS-type logs with Event ID “Account Failed to Logon”. The 30 attempts using the username “admin” are indicative of automated brute force activity.
+
+Recommended Actions:
+Block IP 218.92.0.56 and investigate whether any successful login occurred after the brute force attempts
