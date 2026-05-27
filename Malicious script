@@ -1,0 +1,22 @@
+Alert Summary:
+A malicious PowerShell script was downloaded and executed on an internal Windows machine. The malware established communication with a confirmed C2 server.
+
+Indicators: 
+
+  • Hostname:   Tony
+	•	IP Address: 172.16.17.206
+	•	File Name: payload_1.ps1
+	•	File Path: C:\Users\LetsDefend\Downloads\payload_1.ps1
+	•	File Hash: db8be06ba6d2d3595dd0c86654a48cfc4c0c5408fdd3f4e1eaf342ac7a2479d0
+	•	AV/EDR Action: Detected (not quarantined)
+	•	C2: kionagranada.com (IP: 200.234.225.9)
+
+
+Analysis:
+
+The file payload_1.ps1 was downloaded from a malicious Amazon S3 bucket and executed via PowerShell. The EDR detected the file but did not quarantine it. Browser history confirmed Tony visited the download URL. Log Management showed two connections to kionagranada.com at 05:23 PM confirming active C2 communication. VirusTotal flagged the domain as spyware and malware via Sophos and Webroot. 34/71 vendors flagged the file hash as malicious.
+
+
+
+Recommended Actions:
+Contain machine Tony immediately, remove payload_1.ps1, block kionagranada.com and IP 200.234.225.9 at firewall level.
