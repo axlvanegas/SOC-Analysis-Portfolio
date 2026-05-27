@@ -1,0 +1,22 @@
+Privilege Escalation.
+
+
+Alert Summary:
+A privilege escalation exploit was detected on an internal Windows 10 machine. The malware impersonated a legitimate Windows process to evade detection.
+
+Indicators:
+
+	•	Hostname: Victor
+	•	IP Address: 172.16.17.207
+	•	Malware: svohost.exe (typosquatting svchost.exe)
+	•	File Path: C:\temp\service_installer\svohost.exe
+	•	File Hash: b432dcf4a0f0b601b1d79848467137a5e25cab5a0b7b1224be9d3b6540122db9
+	•	Parent Process: PowerShell
+	•	CVE: CVE-2024-49138
+	•	Device Action: Allowed (not quarantined)
+
+Analysis:
+The malware svohost.exe was designed to mimic the legitimate Windows process svchost.exe using typosquatting. It was executed from C:\temp\ instead of C:\Windows\System32, which is an immediate red flag. PowerShell was used as the parent process to execute the malware. VirusTotal confirmed 50/71 security vendors flagged the file as malicious, classified as Trojan.barys/expl. No confirmed C2 communication was identified in network logs.
+
+Recommended Actions:
+Contain the machine Victor, remove svohost.exe, and patch the system against CVE-2024-49138.
