@@ -1,0 +1,21 @@
+Alert Summary:
+A critical command injection vulnerability was exploited on a Palo Alto Networks firewall. The attacker injected OS commands via a malicious HTTP cookie targeting the GlobalProtect login portal.
+
+Indicators:
+
+• Source IP: 144.172.79.92 (10 detections on VirusTotal)
+• Destination IP: 172.16.17.139
+• Hostname: PA-Firewall-01
+• CVE: CVE-2024-3400
+• HTTP Method: POST
+• Requested URL: /global-protect/login.esp
+• Cookie: path traversal + curl command to port 4444 + whoami
+• Device Action: Allowed
+
+Analysis:
+The attacker sent a crafted POST request to the GlobalProtect login portal injecting OS commands inside the cookie field. Commands included path traversal, a curl request to an external IP on port 4444 indicating a reverse shell attempt, and whoami to identity system privileges. Source IP had 10 malicious detections on VirusTotal. Log Management showed 4 connection events from the attacker IP. Terminal
+History showed no executed commands suggesting the exploit was detected before full execution. No pentest authorization found in email records.
+Verdict: True Positive - Attack partially mitigated
+
+Recommended Actions:
+Patch PA-Firewall-01 against CVE-2024-3400, block IP 144.172.79.92, monitor port 4444 for reverse shell attempts.
