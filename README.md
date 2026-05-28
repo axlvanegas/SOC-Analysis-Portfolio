@@ -5,11 +5,11 @@ Collection of SOC Tier 1 incident analysis writeups
 completed on LetsDefend platform.
 
 ## Cases
-RDP Brute Force
-CVE-2024-49138 Exploitatio
-Suspicious PowerShell Script
-QR Code Phishing
-Palo Alto Command Injection (Critical)
+	1.	RDP Brute Force
+	2.	Quishing
+	3.	Malicious PowerShell
+	4.	Palo Alto Command Injection
+	5.	Privilege Escalation
 
 ## Certifications
 - CompTIA Security+
