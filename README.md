@@ -1,5 +1,5 @@
 
-# SOC Analysis Portfolio - Axel Vanegas
+# Security Analyst Portfolio - Axel Vanegas
 
 Collection of SOC Tier 1 incident analysis writeups 
 completed on LetsDefend platform.
